@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaHome, FaEnvelope, FaBars, FaTimes } from "react-icons/fa";
+import FloatingNavBar from "./FloatingNavBar";
 
 interface HeaderProps {
   currentPath: string;
@@ -26,15 +27,8 @@ export const Header = ({ currentPath, navigate }: HeaderProps) => {
     <header className="bg-white shadow-lg sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              TechFlow
-            </h1>
-          </div>
-
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map(({ path, label, icon: Icon }) => (
                 <button
@@ -51,10 +45,10 @@ export const Header = ({ currentPath, navigate }: HeaderProps) => {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="bg-gray-50 inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
@@ -62,10 +56,10 @@ export const Header = ({ currentPath, navigate }: HeaderProps) => {
             >
               {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
-          </div>
+          </div> */}
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 rounded-lg mt-2">
@@ -88,8 +82,16 @@ export const Header = ({ currentPath, navigate }: HeaderProps) => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </nav>
+      <div className="w-full flex flex-col sm:flex-row sm:justify-between sm:items-center">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-white">
+          PicoZen
+        </h1>
+
+        <FloatingNavBar />
+      </div>
     </header>
   );
 };
